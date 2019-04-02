@@ -1,6 +1,15 @@
 var nodeList = document.querySelectorAll(".drum");
 var count =0;
 
+
+
+
+
+
+
+
+
+
 //Adressing different drums to different pressed keys
 function keyPress( key ){
   switch (key) {
