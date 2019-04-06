@@ -1,15 +1,6 @@
 var nodeList = document.querySelectorAll(".drum");
 var count =0;
 
-
-
-
-
-
-
-
-
-
 //Adressing different drums to different pressed keys
 function keyPress( key ){
   switch (key) {
@@ -52,10 +43,24 @@ while(count <nodeList.length){
   document.querySelectorAll(".drum")[count].addEventListener("click", function(){
     var clickedButton = this.innerHTML;
     keyPress(clickedButton);
+    animationButton(clickedButton);
   });
   count ++;
 }
 document.addEventListener("keypress",function(event){
   var char = event.key;
   keyPress(char);
-})
+  animationButton(char);
+});
+
+
+//Adding flashing animation when the button is pressed
+function animationButton(currentKey){
+  document.querySelector("."+currentKey).classList.add("pressed");
+  //Remove flashing animation after 0.35 second
+  setTimeout(function(){
+    document.querySelector("."+currentKey).classList.remove("pressed")
+  },350);
+
+
+}
